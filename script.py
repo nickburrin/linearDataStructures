@@ -6,11 +6,11 @@ class Node:
     def get_value(self):
         return self.value;
 
-    def get_link_node(self):
+    def get_next_node(self):
         return self.next_node;
 
-    def set_next_node(self, link_node):
-        self.link_node = link_node;
+    def set_next_node(self, next_node):
+        self.next_node = next_node;
 
 yacko = Node('likes to yak');
 wacko = Node('has a penchant for hoarding snacks');

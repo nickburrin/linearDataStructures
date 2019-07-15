@@ -24,6 +24,16 @@ class LinkedList:
         new_node.set_next_node(self.head_node);
         self.head_node = new_node;
 
+    def insert_end(self, value):
+        tail = self.get_tail_node();
+        tail.set_next_node(Node(value));
+
+    def get_tail_node(self):
+        curr = self.head_node;
+        while (curr.get_next_node()):
+            curr = curr.get_next_node()
+        return curr;
+
     def stringify_list(self):
         current = self.head_node;
         output = "";
@@ -46,3 +56,9 @@ class LinkedList:
                     current_node = None;
                 else:
                     current_node = next_node;
+
+ll = LinkedList(5);
+ll.insert_beginning(2);
+ll.insert_end(20);
+ll.insert_end(25);
+print(ll.stringify_list());

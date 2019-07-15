@@ -1,10 +1,27 @@
-from LinkedList import LinkedList;
+from Stack import Stack;
 
-ll = LinkedList(5);
-ll.insert_beginning(2);
-ll.insert_end(20);
-ll.insert_end(25);
-print(ll.stringify_list());
+# Defining an empty pizza stack with limit of 6
+pizza_stack = Stack(6)
 
-ll.remove_node(25);
-print(ll.stringify_list());
+# Adding pizzas as they are ready until we have 
+pizza_stack.push("pizza #1")
+pizza_stack.push("pizza #2")
+pizza_stack.push("pizza #3")
+pizza_stack.push("pizza #4")
+pizza_stack.push("pizza #5")
+pizza_stack.push("pizza #6")
+
+# Uncomment the push() statement below:
+pizza_stack.push("pizza #7")
+
+# Delivering pizzas from the top of the stack down
+print("The first pizza to deliver is " + pizza_stack.peek())
+pizza_stack.pop()
+pizza_stack.pop()
+pizza_stack.pop()
+pizza_stack.pop()
+pizza_stack.pop()
+pizza_stack.pop()
+
+# Uncomment the pop() statement below:
+pizza_stack.pop()

@@ -3,11 +3,18 @@ from Node import Node;
 
 # Implement as subclass of LinkedList
 class Stack(LinkedList):
-    def __init__(self, limit = 1000):
+    def __init__(self, name, limit = 1000):
         LinkedList.__init__(self, None);
         self.top_item = self.get_head_node();
         self.size = 0;
+        self.name = name;
         self.limit = limit;
+
+    def get_name(self):
+        return self.name;
+
+    def get_size(self):
+        return self.size;
 
     def peek(self):
         if not self.is_empty():
@@ -37,3 +44,12 @@ class Stack(LinkedList):
 
     def is_empty(self):
         return self.size == 0;
+
+    def print_items(self):
+        pointer = self.top_item;
+        print_list = [];
+        while(pointer):
+            print_list.append(pointer.get_value());
+            pointer = pointer.get_next_node();
+        print_list.reverse();
+        print("{0} Stack: {1}".format(self.get_name(), print_list));

@@ -5,7 +5,7 @@ from Node import Node;
 class Stack(LinkedList):
     def __init__(self, name, limit = 1000):
         LinkedList.__init__(self, None);
-        self.top_item = self.get_head_node();
+        self.top_node = self.get_head_node();
         self.size = 0;
         self.name = name;
         self.limit = limit;
@@ -18,14 +18,14 @@ class Stack(LinkedList):
 
     def peek(self):
         if not self.is_empty():
-            return self.top_item.get_value();
+            return self.top_node.get_value();
         else:
             print('The stack is empty');
 
     def push(self, value):
         if self.has_space():
             self.insert_beginning(value);
-            self.top_item = self.get_head_node()
+            self.top_node = self.get_head_node()
             self.size += 1;
         else:
             print('Stack is full, cannot push {}'.format(value));
@@ -33,7 +33,7 @@ class Stack(LinkedList):
     def pop(self):
         if not self.is_empty():
             item_to_remove = self.remove_head();
-            self.top_item = self.get_head_node()
+            self.top_node = self.get_head_node()
             self.size -= 1;
             return item_to_remove.get_value();
         else:
@@ -46,7 +46,7 @@ class Stack(LinkedList):
         return self.size == 0;
 
     def print_items(self):
-        pointer = self.top_item;
+        pointer = self.top_node;
         print_list = [];
         while(pointer):
             print_list.append(pointer.get_value());

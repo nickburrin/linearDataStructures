@@ -40,6 +40,12 @@ class LinkedList:
         output += str(current.get_value()) + "\n";
         return output;
 
+    def remove_head(self):
+        head = self.get_head_node();
+        self.head_node = head.get_next_node();
+        head.set_next_node(None);
+        return head;
+
     def remove_node(self, value_to_remove):
         print('Removing node with value: {}'.format(value_to_remove));
         

@@ -2,7 +2,10 @@ from Node import Node;
 
 class LinkedList:
     def __init__(self, value = None):
-        self.head_node = Node(value);
+        if value != None:
+            self.head_node = Node(value);
+        else: 
+            self.head_node = None;
 
     def get_head_node(self):
         return self.head_node;

@@ -7,15 +7,6 @@ class LinkedList:
     def get_head_node(self):
         return self.head_node;
 
-    def insert_beginning(self, value):
-        new_node = Node(value);
-        new_node.set_next_node(self.head_node);
-        self.head_node = new_node;
-
-    def insert_end(self, value):
-        tail = self.get_tail_node();
-        tail.set_next_node(Node(value));
-
     def get_tail_node(self):
         curr = self.head_node;
         while (curr.get_next_node()):
@@ -31,14 +22,14 @@ class LinkedList:
             curr = curr.get_next_node();
         return curr;
 
-    def stringify_list(self):
-        current = self.head_node;
-        output = "";
-        while current.get_next_node() != None:
-            output += str(current.get_value()) + "\n";
-            current = current.get_next_node();
-        output += str(current.get_value()) + "\n";
-        return output;
+    def insert_beginning(self, value):
+        new_node = Node(value);
+        new_node.set_next_node(self.head_node);
+        self.head_node = new_node;
+
+    def insert_end(self, value):
+        tail = self.get_tail_node();
+        tail.set_next_node(Node(value));
 
     def remove_head(self):
         head = self.get_head_node();
@@ -61,3 +52,12 @@ class LinkedList:
                     print('No node to remove with value: {}'.format(value_to_remove));
                     return;
             current.set_next_node(next.get_next_node());
+
+    def stringify_list(self):
+        current = self.head_node;
+        output = "";
+        while current.get_next_node() != None:
+            output += str(current.get_value()) + "\n";
+            current = current.get_next_node();
+        output += str(current.get_value()) + "\n";
+        return output;
